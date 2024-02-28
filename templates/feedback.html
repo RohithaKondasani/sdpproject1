@@ -1,0 +1,69 @@
+{% extends 'navbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback Form</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+{% block body %}
+
+<!------ Include the above in your HEAD tag ---------->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form class="form-horizontal" action="{% url 'contactmail' %}" method="POST">
+          {% csrf_token %}
+          <fieldset>
+              {% csrf_token %}
+              <h1>Feedback Form</h1>
+
+              <div class="control-group">
+                <!-- Name -->
+                <label class="control-label"  for="firstname">First Name</label>
+                <div class="controls">
+                  <input type="text" id="firstname" name="firstname" placeholder="" class="input-xlarge">
+                </div>
+                <label class="control-label"  for="lastname">Last Name</label>
+                <div class="controls">
+                  <input type="text" id="lastname" name="lastname" placeholder="" class="input-xlarge">
+                </div>
+              </div>
+              <br>
+
+              <div class="control-group">
+                <!-- Email -->
+                <label class="control-label" for="email">Your Email</label>
+                <div class="controls">
+                  <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+                </div>
+              </div>
+              <br>
+
+              <div class="control-group">
+                <!-- Feedback -->
+                <label class="control-label" for="comments">Your Feedback</label>
+                <div class="controls">
+                  <textarea id="comments" name="comments" placeholder="Share your feedback..." class="input-xlarge"></textarea>
+                </div>
+              </div>
+              <br>
+
+              <div class="control-group">
+                <!-- Button -->
+                <div class="controls">
+                  <button class="btn btn-primary" type="submit">Submit Feedback</button>
+                </div>
+              </div>
+          </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+<br><br>
+
+{% endblock %}
+
+</html>
